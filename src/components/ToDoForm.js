@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
-import Header from './Header';
-
-
 
 const ToDoForm = ({ addTask }) => {
-
 
     const [ userInput, setUserInput ] = useState('');
 
@@ -24,16 +20,15 @@ const ToDoForm = ({ addTask }) => {
 
     return (
    <div className='ToDoForm'>
-          <Header />
+   <span className='todoform-heading'>Add Tasks Here!</span>
     <form className="main-form form-control " onSubmit={handleSubmit}  >
 
     <div className="input-group mb-3 input-form">
 
-     <input type="text" class="form-control" maxlength="18" minLength="3" value={userInput} onChange={handleChange} placeholder="Enter task..."/>
-    <button className="btn btn-warning" type="submit" id="button-addon2">+Add Task</button>
+     <input type="text" className="form-control" maxLength="18" minLength="3" value={userInput} onChange={handleChange} placeholder="Enter task..."/>
+    <button className="btn btn-add" type="submit" id="button-addon2">+Add Task</button>
     </div> 
     </form>
-    <footer className='footer'>Created by Satyaki || Copyright</footer>
    </div>
     );
 };

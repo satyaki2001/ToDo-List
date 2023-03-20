@@ -3,31 +3,43 @@ html{
 }
 
 body{
-  height: 100%;
 width: 100%;
-height: 100vh;
+position: sticky;
 background-size: 300% 300%;
-background-image: linear-gradient(
-      -45deg, 
-      rgba(128, 177, 86,1) 0%, 
-      rgba(128, 105, 3,1) 25%, 
-      rgba(211, 207, 190,1) 51%, 
-      rgba(106, 97, 95,1) 100%
-);  
-animation: AnimateBG 20s ease infinite;
+background-color: #180357;
 
 }
+
+.app{
+  background-size: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 5px;
+}
+
+.main-page{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: fit-content;
+  margin-top: 2%;
+}
+
 .Header{
 text-align: left;
-font-family: 'Edu NSW ACT Foundation', cursive;
+font-family: 'Rubik Iso', cursive;
 width: 100%;
 display: inline-block;
+position: fixed;
+top: 4px;
 
 }
 
 .heading {
   font-size: 55px;
-  color: #514512;
+  color: #4677c6;
 }
 
 
@@ -35,88 +47,113 @@ display: inline-block;
 background-color: transparent;
 border-color: transparent;
 margin-top: 40px;
+flex: 50%;
 }
 
 .ToDoForm{
+  flex: 50%;
+  text-align: center;
 box-sizing: border-box;
+border-radius: 10px;
 position: fixed;
 display:block;
-z-index: 9;
-width: 30vw;
-height: 102vh;
-background-color: #6a615f;
-top: 0px;
+width: 40%;
+height: 80%;
+background-color: #144da8;
+margin-left: 5%;
+margin-top: 5%;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 
 .list-head{
-  color: aliceblue;
-  font-size: 14px;
+  font-family: 'Edu NSW ACT Foundation', cursive;
+  color:#180357 ;
+  font-size: 18px;
  margin-top: 10px;
  margin-bottom: 20px;
 }
 
+.todolist-desc{
+  font-size: 20px;
+}
+
 .strike {
-color: rgb(107, 181, 107);
+color: rgb(45, 190, 45);
 font-weight: bold;
 }
 
+
 .ToDoList{
-  position: relative;
- text-align: center;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 box-sizing: border-box;
 border-radius: 8px;
-width: 800px;
-margin-left: auto;
-margin-right: auto;
-margin-top: 10px;
+width: 40vw;
+max-width: 50%;
+min-height: 80vh;
 cursor: pointer;
-background-color: #6a615f;
+background-color: #144da8;
 padding: 5px;
 position: relative;
-left: 220px;
-top: 40px;
+align-items: center;
+margin-left: 55%;
+margin-top: 5%;
+text-align: center;
+}
+
+.todoform-heading{
+  font-size: 30px;
+  position: relative;
+  top: 12px;
+  font-weight: 20px;
+  font-family: 'Edu NSW ACT Foundation', cursive;
+  color:#180357 ;
 
 }
 
 .todo{
-  margin: 10px;
+  margin-top: 5px;
   box-sizing: border-box;
 padding-top: 5px;
   font-size: 20px;
   padding-bottom: 4px;
   transition: 0.1s;
-  display: inline-block;
-  margin-right: 15px;
+  margin-left:20px ;
+  display: inline;
+
+
 }
 
 .todo-main{
-  text-align: center;
   box-sizing: border-box;
   border-radius: 8px;
-  background-color:#514512;
-  margin: 12px;
-  width: 90%;
+  border: 2px #fff;
   transition: transform .2s;
-}
-
-.inner-box{
-  width: 100%;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .todo-main:hover{
   transform: scale(1.02);
 }
 
-.btn .btn-danger{
-  left: 100px;
-  position:absolute
+.btn-add{
+  background-color: #8246c6;
 }
 
 .delete-button{
   color: #a52f2f;
   font-size: 20px;
+
+}
+.delete-container{
+  position: relative;
+  float: right;
+  margin-right: 20px;
+  z-index: 9px;
+  margin-top: 8px;
+  margin-bottom: 6px;
 }
 
 .delete-button:hover{
@@ -133,12 +170,6 @@ padding-top: 5px;
               0 0 100px #13f40327;
 }
 
-.task{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  grid-auto-rows: 100px;
-}
 
 .footer {
   position: fixed;
@@ -149,14 +180,6 @@ padding-top: 5px;
 }
 
 
-
-
-
-@keyframes AnimateBG { 
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
 
 @keyframes shake {
   0% { transform: translate(1px, 1px) rotate(0deg); }
@@ -174,36 +197,62 @@ padding-top: 5px;
 
 /*For mobile*/
 
-@media screen and (max-width: 500px){
+@media (max-width: 800px){
 
-  body{
-    align-content: center;
+  .heading {
+    font-size: 35px;
   }
 
-  .Header{
-    text-align: center;
-    font-family: 'Edu NSW ACT Foundation', cursive;
-    
-    }
+.Header{
+  position: relative;
+  margin-left: 15px;
+}
 
-    .heading {
-      font-size: 30px;
-      color: #514512;
-    }
+  .ToDoForm {
+    margin-right: 2%;
+    height:30vh;
+    position: relative;
+
+  }
 
   .ToDoList{
+    position:inherit;
+width: 90vw;
+margin-left: 0%;
+right: 100px;
+background-color: transparent;
+box-shadow: none;
+  }
+
+  
+  .todolist-desc{
+    font-size: 20px;
+    color: #144da8;
+  }
+
+
+
+  .todo-main{
+    width: 100vw;
+    height: 10vh;
+    background-color: rgb(78, 106, 183);
+  }
+
+  .todo{
     position: relative;
-   text-align: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  box-sizing: border-box;
-  border-radius: 8px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  cursor: pointer;
-  background-color: #6a615f;
-  padding: 5px;
-  top: 40px;
+    top: 10px;
+  margin-top: 2px;
+  font-size:22px;
+  }
+
+  .list-head{
+  width: 100vw;
+  color: #144da8;
+  }
+
+  .delete-container{
+    position: relative;
+     top: 10px;
   }
 
 }

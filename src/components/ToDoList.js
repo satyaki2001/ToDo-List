@@ -6,7 +6,7 @@ const ToDoList = ({toDoList, handleToggle, handleFilter, handleDelete}) => {
         <div className='ToDoList '>
         <div className='list-head'>
         <h2>Tasks</h2>
-        <span >click on the task after completion</span>
+        <span className='todolist-desc'>click on the task after completion</span>
         </div>
         <div className='task'>
 

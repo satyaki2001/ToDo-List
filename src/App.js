@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 //mock data
 import data from "./data.json";
 //components
+import Header from './components/Header';
 import ToDoList from "./components/ToDoList";
 import ToDoForm from './components/ToDoForm';
 
@@ -38,9 +39,11 @@ function App() {
 
   return (
     <div className="App">
-      <ToDoForm addTask={addTask}/>
+    <Header />
+    <div className="main-page">
+    <ToDoForm addTask={addTask}/>
       <ToDoList toDoList={toDoList} handleToggle={handleToggle} handleFilter={handleFilter}  handleDelete={handleDelete}/>
- 
+    </div>
     </div>
   );
 }
