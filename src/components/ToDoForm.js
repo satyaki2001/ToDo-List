@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import Header from './Header';
 
 
-const d = new Date();
-let year = d.getFullYear();
-document.getElementById("year").innerHTML = year;
 
 const ToDoForm = ({ addTask }) => {
 
@@ -22,9 +19,9 @@ const ToDoForm = ({ addTask }) => {
         }else{
             addTask(userInput);
         }
-
         setUserInput("");
     }
+
     return (
    <div className='ToDoForm'>
           <Header />
@@ -36,10 +33,8 @@ const ToDoForm = ({ addTask }) => {
     <button className="btn btn-warning" type="submit" id="button-addon2">+Add Task</button>
     </div> 
     </form>
-    <footer className='footer'>Created by Satyaki || Copyright <span id='year'></span></footer>
+    <footer className='footer'>Created by Satyaki || Copyright</footer>
    </div>
-
-
     );
 };
 

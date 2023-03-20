@@ -171,3 +171,39 @@ padding-top: 5px;
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
+
+/*For mobile*/
+
+@media screen and (max-width: 500px){
+
+  body{
+    align-content: center;
+  }
+
+  .Header{
+    text-align: center;
+    font-family: 'Edu NSW ACT Foundation', cursive;
+    
+    }
+
+    .heading {
+      font-size: 30px;
+      color: #514512;
+    }
+
+  .ToDoList{
+    position: relative;
+   text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  cursor: pointer;
+  background-color: #6a615f;
+  padding: 5px;
+  top: 40px;
+  }
+
+}

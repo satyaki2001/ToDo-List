@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 //mock data
 import data from "./data.json";
 //components
-import ToDoList from "./ToDoList";
-import ToDoForm from './ToDoForm';
+import ToDoList from "./components/ToDoList";
+import ToDoForm from './components/ToDoForm';
 
 function App() {
   

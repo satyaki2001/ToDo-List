@@ -1,13 +1,7 @@
 import React from 'react';
 import ToDo from './ToDo';
 
-
-
-
 const ToDoList = ({toDoList, handleToggle, handleFilter, handleDelete}) => {
-
-
-
     return (
         <div className='ToDoList '>
         <div className='list-head'>
