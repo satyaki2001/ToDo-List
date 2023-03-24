@@ -96,7 +96,7 @@ background-color: #144da8;
 padding: 5px;
 position: relative;
 align-items: center;
-margin-left: 55%;
+left: 55%;
 margin-top: 5%;
 text-align: center;
 }
@@ -118,10 +118,13 @@ padding-top: 5px;
   font-size: 20px;
   padding-bottom: 4px;
   transition: 0.1s;
-  margin-left:20px ;
   display: inline;
+  text-align: left;
+}
 
 
+.todo-head{
+  margin-left: 8px;
 }
 
 .todo-main{
@@ -138,6 +141,12 @@ padding-top: 5px;
   transform: scale(1.02);
 }
 
+.todo-desc{
+  text-align: left;
+  margin-left: 15px;
+
+}
+
 .btn-add{
   background-color: #8246c6;
 }
@@ -152,8 +161,7 @@ padding-top: 5px;
   float: right;
   margin-right: 20px;
   z-index: 9px;
-  margin-top: 8px;
-  margin-bottom: 6px;
+  margin-top: 20px;
 }
 
 .delete-button:hover{
@@ -210,14 +218,15 @@ padding-top: 5px;
 
   .ToDoForm {
     margin-right: 2%;
-    height:30vh;
+    height:fit-content;
     position: relative;
 
   }
 
   .ToDoList{
+    box-sizing: border-box;
     position:inherit;
-width: 90vw;
+width: 80%;
 margin-left: 0%;
 right: 100px;
 background-color: transparent;
@@ -244,6 +253,8 @@ box-shadow: none;
   margin-top: 2px;
   font-size:22px;
   }
+
+  
 
   .list-head{
   width: 100vw;

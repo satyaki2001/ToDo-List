@@ -1,17 +1,21 @@
 [{
     "id": 1,
     "task": "Do laundry",
+    "description": "Do laundry within 1 hour",
     "complete": false
   },{
     "id": 2,
     "task": "Buy Groceries",
+    "description": "Buy Groceries for this month",
     "complete": false
   }, {
     "id": 3,
     "task": "Study for exams",
+    "description": "Study for exams for 2 hours a day",
     "complete": true
   }, {
     "id": 4,
     "task": "Do Yoga",
+    "description": "Do yoga for 1 hour in the morning",
     "complete": true
   }]

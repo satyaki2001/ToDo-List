@@ -16,7 +16,6 @@ const ToDoList = ({toDoList, handleToggle, handleFilter, handleDelete}) => {
                     <div className='inner-box'>                  
                     <ToDo todo={todo} handleToggle={handleToggle} handleFilter={handleFilter}  handleDelete={handleDelete}  />
                     </div>
-  
                 )
             })}
             

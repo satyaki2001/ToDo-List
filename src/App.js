@@ -24,9 +24,17 @@ function App() {
     setToDoList(filtered);
   }
 
-  const addTask = (userInput ) => {
+  const addTask = (userInput, description) => {
     let copy = [...toDoList];
-    copy = [...copy, { id: toDoList.length + 1, task: userInput, complete: false }];
+    copy = [
+      ...copy, 
+      { 
+        id: toDoList.length + 1, 
+        task: userInput, 
+        description: description, // include the description value
+        complete: false 
+      }
+    ];
     setToDoList(copy);
   }
 
