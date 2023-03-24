@@ -28,7 +28,7 @@ background-color: #180357;
 }
 
 .Header{
-text-align: left;
+text-align: center;
 font-family: 'Rubik Iso', cursive;
 width: 100%;
 display: inline-block;
@@ -89,7 +89,6 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 box-sizing: border-box;
 border-radius: 8px;
 width: 40vw;
-max-width: 50%;
 min-height: 80vh;
 cursor: pointer;
 background-color: #144da8;
@@ -125,6 +124,8 @@ padding-top: 5px;
 
 .todo-head{
   margin-left: 8px;
+  font-family: 'Edu NSW ACT Foundation', cursive;
+  font-size: 25px;
 }
 
 .todo-main{
@@ -135,6 +136,7 @@ padding-top: 5px;
   margin-top: 15px;
   display: flex;
   justify-content: space-between;
+  height: fit-content;
 }
 
 .todo-main:hover{
@@ -143,8 +145,29 @@ padding-top: 5px;
 
 .todo-desc{
   text-align: left;
-  margin-left: 15px;
+ padding-left: 15px;
+ width: 100vw;
+}
 
+.desc-toggeler{
+  font-size: 18px;
+
+}
+
+
+
+
+
+.desc-para{
+margin-top:6px;
+background-color: rgb(133, 189, 189);
+width: 1;
+height: fit-content;
+box-sizing: border-box;
+border-radius: 10px;
+padding-left: 5px;
+font-size: 20px;
+font-family: 'Delicious Handrawn', cursive;
 }
 
 .btn-add{
@@ -161,7 +184,8 @@ padding-top: 5px;
   float: right;
   margin-right: 20px;
   z-index: 9px;
-  margin-top: 20px;
+  margin-top: 6px;
+  height: 5px;
 }
 
 .delete-button:hover{
@@ -213,11 +237,10 @@ padding-top: 5px;
 
 .Header{
   position: relative;
-  margin-left: 15px;
 }
 
   .ToDoForm {
-    margin-right: 2%;
+    margin: 6px;
     height:fit-content;
     position: relative;
 
@@ -225,10 +248,9 @@ padding-top: 5px;
 
   .ToDoList{
     box-sizing: border-box;
-    position:inherit;
-width: 80%;
-margin-left: 0%;
-right: 100px;
+    position:relative;
+    width: 100%;
+left: -0.2%;
 background-color: transparent;
 box-shadow: none;
   }
@@ -242,9 +264,21 @@ box-shadow: none;
 
 
   .todo-main{
-    width: 100vw;
-    height: 10vh;
+    min-height: 60px;
+    max-height: fit-content;
     background-color: rgb(78, 106, 183);
+  }
+
+  .desc-para{
+    position: relative;
+    margin-top: 16px;
+  }
+
+  .desc-toggeler{
+    position: relative;
+ top: 18%;
+ font-size: 22px;
+ margin-bottom: 5px;
   }
 
   .todo{
@@ -257,7 +291,6 @@ box-shadow: none;
   
 
   .list-head{
-  width: 100vw;
   color: #144da8;
   }
 

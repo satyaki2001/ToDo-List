@@ -27,7 +27,7 @@ const ToDoForm = ({ addTask }) => {
 
     </div> 
    <div className="input-group mb-3 input-form">
-   <input type="text" className="form-control" maxLength="18" minLength="3"value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Enter task..."/>
+   <input type="text" className="form-control" maxLength="30" minLength="3"value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Enter description..."/>
    </div>
 
 

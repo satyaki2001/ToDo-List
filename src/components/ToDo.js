@@ -19,13 +19,13 @@ const ToDo = ({todo, handleToggle, handleDelete}) => {
     return (
             <div className='todo-main'>
             <div className='todo-desc'>
-            <span><i class="fa-solid fa-circle-chevron-right" name="desc-toggeler" onClick={toggleAccordion} ></i></span>
+            <span className='desc-toggeler'><i class="fa-solid fa-circle-chevron-right " name="desc-toggeler" onClick={toggleAccordion} ></i></span>
             <div id={todo.id} key={todo.id + todo.task} name="todo" value={todo.id} onClick={handleClick}  className={todo.complete ? "todo strike" : "todo "}>
             <span className='todo-head'>{todo.task}</span>  
             </div>
             {isOpen && (
           <div class="panel">
-            <p>{todo.description}</p>
+            <p className='desc-para'>{todo.description}</p>
           </div>
         )}
 
