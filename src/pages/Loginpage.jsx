@@ -7,6 +7,15 @@ function Login() {
   function handlePasswordToggle() {
     setShowPassword(!showPassword);
   }
+
+  function handleSubmit(event) {
+    event.preventDefault(); 
+    const username = document.getElementById("id_username").value; 
+    const password = document.getElementById("id_password").value;
+    console.log("Username:", username, "Password:", password); 
+  }
+
+
   return (
     <div className="loginPage">
       <div className="login-text-container">
@@ -28,7 +37,7 @@ function Login() {
         </div>
       </div>
       <div className="login-box">
-        <form action="submit" className="form-submit">
+        <form onSubmit={handleSubmit} className="form-submit">
           <div className="input-login">
             <div className="login-head">
               <span className="login-head-text">Let’s get started</span>
