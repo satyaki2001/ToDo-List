@@ -189,7 +189,8 @@ flex-grow: 0;
 .login-head-text{
   width: 129px;
   height: 21px;
-  
+  position: relative;
+  right: 21px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -238,7 +239,8 @@ padding: 12px 24px;
 font-weight: 400px;
 width: 140px;
 height: 37px;
-
+position: relative;
+right: 6%;
 background: #F5C353;
 border-radius: 24px;
 border: none;
@@ -296,8 +298,7 @@ bottom: 10px;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
-  left: 22px;
-  bottom: 9px;
+
 
 }
 
@@ -308,8 +309,7 @@ bottom: 10px;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
-  left: 22px;
-  bottom: 9px;
+
 
 }
 
@@ -319,8 +319,7 @@ bottom: 10px;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
-  left: 22px;
-  bottom: 9px;
+
 
 }
 
@@ -460,7 +459,7 @@ background: none;
 
 .remember-me{
   position: relative;
-  left: 6.1%;
+  left: 0.5%;
 
 }
 
@@ -470,7 +469,7 @@ font-family: 'Roboto';
 font-style: normal;
 font-weight: 500;
 font-size: 12px;
-left: 30px;
+left: 0.5%;
 bottom: 3px;
 height: 18px;
 
@@ -801,7 +800,7 @@ box-shadow: none;
   width: 85%;
   height: fit-content;
  left: 8%;
- top: 2%;
+ top: 5%;
  text-align: center;
 align-content: center;
 justify-content: center;
@@ -844,7 +843,7 @@ width: 100%;
   position: relative;
   width: 72px;
   justify-content: center;
-  right: 10%;
+  right: 16%;
 }
 
   .branding{
@@ -855,8 +854,9 @@ justify-content: center;
   .by{
     position: relative;
     font-size: 30px;
-    right: 10%;
+    right: 6%;
     top: 5%;
+    margin-right: 6%;
   }
 
 
@@ -864,6 +864,7 @@ justify-content: center;
   .dotkonnekt{
     box-sizing: border-box;
   font-size: 30px;
+  
 
 
   }
@@ -879,4 +880,27 @@ justify-content: center;
 
 }
 
+@media screen and (min-width: 1730px) and (max-width:2299px) {
+  .remember-label{
+margin-left: 10px;
+    }
 
+    .login-button{
+
+    position: relative;
+    right: 6%;
+
+    }
+}
+
+@media screen and (min-width: 2300px) {
+  .remember-label{
+margin-left: 20px;
+    }
+    .login-button{
+
+      position: relative;
+      right: 3%;
+  
+      }
+}
