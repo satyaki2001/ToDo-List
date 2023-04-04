@@ -712,7 +712,7 @@ font-family: 'Delicious Handrawn', cursive;
 
 /*For mobile*/
 
-@media screen and (min-width:425px) and (max-width: 800px){
+@media (max-width: 800px){
 
   .heading {
     font-size: 35px;
