@@ -1,47 +1,77 @@
-import React, {useState} from "react";
+import React, {useReducer, useState} from "react";
 import Header from "../components/Header";
 import ToDoForm from "../components/ToDoForm";
 import ToDoList from "../components/ToDoList";
 //mock data
 import data from '../data.json';
 
-function Main(){
+const initialState = {
+  toDoList: data
+};
 
-    const [ toDoList, setToDoList ] = useState(data);
+const reducer = (state, action) =>{
+  switch (action.type){
+    case "Toggle":
+      return {
+        ...state,
+        toDoList: state.toDoList.map((task)=>{
+          if(task.id === Number(action.payload)){
+            return {...task, complete: !task.complete};
+          }
+          return task;
+        })
+      };
+    case "Filter":
+      return {
+        ...state,
+        toDoList: state.toDoList.filter((task) => !task.complete)
+      };
+      
+    case "Add_Task":
+      return{
+        ...state,
+        toDoList: [
+          ...state.toDoList,
+          {
+            id: state.toDoList.length + 1,
+            task: action.payload.userInput,
+            description: action.payload.description,
+            complete: false
+          }
+
+        ]
+      };
+
+      case "Delete_Task":
+        return {
+          toDoList: state.toDoList.filter((task) => task.id !== action.payload)
+        };
+      default:
+        return state;
+  }
+};
+
+function Main(){
+    
+   const [state, dispatch] = useReducer(reducer, initialState);
 
     const handleToggle = (id) => {
-      let mapped = toDoList.map(task => {
-        return task.id === Number(id) ? { ...task, complete: !task.complete } : { ...task};
-      });
-      setToDoList(mapped);
-    }
+     dispatch({type: "Toggle", payload: id});
+    };
   
-    const handleFilter = (e) => {
-      let filtered = toDoList.filter(task => {
-        return !task.complete;
-      });
-      setToDoList(filtered);
-    }
+    const handleFilter = () => {
+     dispatch({type: "Filter"});
+    };
   
     const addTask = (userInput, description) => {
-      let copy = [...toDoList];
-      copy = [
-        ...copy, 
-        { 
-          id: toDoList.length + 1, 
-          task: userInput, 
-          description: description, // include the description value
-          complete: false 
-        }
-      ];
-      setToDoList(copy);
-    }
+     dispatch({
+      type: "Add_Task",
+      payload: {userInput: userInput, description: description}
+     });
+    };
   
     const handleDelete = (id) => {
-      let newList = toDoList.filter(task => {
-        return task.id !== id;
-      });
-      setToDoList(newList);
+     dispatch({type: "Delete_Task", payload: id})
     }
 
     return(
@@ -49,7 +79,7 @@ function Main(){
     <Header />
     <div className="main-page">
     <ToDoForm addTask={addTask}/>
-      <ToDoList toDoList={toDoList} handleToggle={handleToggle} handleFilter={handleFilter}  handleDelete={handleDelete}/>
+      <ToDoList toDoList={state.toDoList} handleToggle={handleToggle} handleFilter={handleFilter}  handleDelete={handleDelete}/>
     </div>
     </div>
     );

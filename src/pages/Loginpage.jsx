@@ -67,7 +67,7 @@ function Login() {
                 >
                   <i
                     className={`far ${
-                      showPassword ? "fa-eye" : "fa-eye-slash"
+                      showPassword ? "fa-eye-slash" : "fa-eye"
                     } `}
                     id="togglePassword"
                   ></i>
