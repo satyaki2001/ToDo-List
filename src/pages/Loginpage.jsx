@@ -1,18 +1,44 @@
 import React, { useState } from "react";
+import CryptoJS from "crypto-js";
+import axios from 'axios';
 import "../images/logo.jpg";
+
+//encryption of password
+export const encryptAndStringifyData = (data) => {
+  let encryptedData = CryptoJS.AES.encrypt(
+    data,
+    process.env.dotkonnekt
+  ).toString();
+  return encryptedData;
+};
+
+//**************************************/
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
-
-  function handlePasswordToggle() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  
+function handlePasswordToggle() {
     setShowPassword(!showPassword);
   }
 
   function handleSubmit(event) {
-    event.preventDefault(); 
-    const username = document.getElementById("id_username").value; 
-    const password = document.getElementById("id_password").value;
-    console.log("Username:", username, "Password:", password); 
+    event.preventDefault();
+    const encryptedPassword = encryptAndStringifyData(password);
+   
+   axios
+      .post("https://servicesv1.sangria.tech/user/login", { 
+        username,
+        encryptedPassword}, {
+        headers: { tenant_identifier: "dotkonnekt" }
+      })
+      .then(response => {
+        console.log("Login Successful", response.data); 
+      })
+      .catch(error => {
+        console.log("Login failed", error.response.data); 
+      });
   }
 
 
@@ -50,15 +76,18 @@ function Login() {
                   placeholder="User ID"
                   autocomplete="username"
                   required=""
-                  id="id_username"
+                  value={username}
+                  onChange={(event) => setUsername(event.target.value)}
                 />
                 <input
                   className="login-inputs password-input"
                   type={showPassword ? "text" : "password"}
                   placeholder="Password"
-                  autocomplete="username"
+                  autocomplete="password"
                   required=""
                   id="id_password"
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
                 />
                 <button
                   className="eye eye-button"

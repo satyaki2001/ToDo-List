@@ -1,4 +1,4 @@
-import React, {useReducer, useState} from "react";
+import React, {useReducer} from "react";
 import Header from "../components/Header";
 import ToDoForm from "../components/ToDoForm";
 import ToDoList from "../components/ToDoList";
@@ -44,6 +44,7 @@ const reducer = (state, action) =>{
 
       case "Delete_Task":
         return {
+          
           toDoList: state.toDoList.filter((task) => task.id !== action.payload)
         };
       default:

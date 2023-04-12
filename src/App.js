@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-//components
-import Main from './pages/Main';
+
+//pages
+import Main from './pages/main';
 import Login from './pages/Loginpage';
 
 function App() {
@@ -11,9 +12,11 @@ function App() {
     <div className="App">
       <BrowserRouter>
     <Routes>
-    <Route path="/" element={<Login />} />
+    <Route exact path="/" element={<Login />} />
     <Route path="Main" element={<Main />} /> 
     </Routes>
+ 
+ 
   </BrowserRouter>
     </div>
   );
