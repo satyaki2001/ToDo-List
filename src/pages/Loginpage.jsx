@@ -49,6 +49,7 @@ function handlePasswordToggle() {
       })
       .catch(error => {
         console.log("Login failed", error.response.data); 
+        alert("Login Credentials invalid!!")
       });
   }
 
