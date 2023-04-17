@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
+import { useNavigate } from "react-router-dom";
 import CryptoJS from "crypto-js";
 import axios from 'axios';
 import "../images/logo.jpg";
 
+
 //encryption of password
+
 export const encryptAndStringifyData = (data) => {
   let encryptedData = CryptoJS.AES.encrypt(
     data,
-    process.env.dotkonnekt
+    "dotkonnekt"
   ).toString();
   return encryptedData;
 };
@@ -18,7 +21,8 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  
+
+  const navigate = useNavigate();
 function handlePasswordToggle() {
     setShowPassword(!showPassword);
   }
@@ -30,11 +34,18 @@ function handlePasswordToggle() {
    axios
       .post("https://servicesv1.sangria.tech/user/login", { 
         username,
-        encryptedPassword}, {
+        password: encryptedPassword}, {
         headers: { tenant_identifier: "dotkonnekt" }
       })
       .then(response => {
         console.log("Login Successful", response.data); 
+        
+        //Storing the access_token in local storage
+        localStorage.setItem("access_token", response.data.access_token);
+        /***************************/
+
+        navigate('/main');
+
       })
       .catch(error => {
         console.log("Login failed", error.response.data); 
