@@ -1,7 +1,9 @@
-import React, {useReducer} from "react";
+import React, {useReducer, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import ToDoForm from "../components/ToDoForm";
 import ToDoList from "../components/ToDoList";
+
 //mock data
 import data from '../data.json';
 
@@ -53,8 +55,17 @@ const reducer = (state, action) =>{
 };
 
 function Main(){
-    
+  const navigate = useNavigate();
    const [state, dispatch] = useReducer(reducer, initialState);
+  
+  /* Checking the availability of access token */
+   useEffect(()=>{
+    const token = localStorage.getItem("access_token");  
+    if(!token){
+    navigate("/login");
+    }
+  });
+  /***********************************************/
 
     const handleToggle = (id) => {
      dispatch({type: "Toggle", payload: id});
@@ -77,7 +88,7 @@ function Main(){
 
     return(
     <div className="Main">
-    <Header />
+    <Header/>
     <div className="main-page">
     <ToDoForm addTask={addTask}/>
       <ToDoList toDoList={state.toDoList} handleToggle={handleToggle} handleFilter={handleFilter}  handleDelete={handleDelete}/>

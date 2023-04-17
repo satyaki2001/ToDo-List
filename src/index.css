@@ -528,6 +528,14 @@ top: 4px;
   color: #4677c6;
 }
 
+.user-access{
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  bottom: 65px;
+  font-size: 40px;
+  color: #e8ec13ac;
+}
 
 .main-form{
 background-color: transparent;
@@ -719,6 +727,14 @@ font-family: 'Delicious Handrawn', cursive;
 
 .Header{
   position: relative;
+}
+
+.user-access{
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  bottom: 49px;
+  font-size: 40px;
 }
 
   .ToDoForm {
