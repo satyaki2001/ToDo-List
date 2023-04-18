@@ -515,7 +515,7 @@ top: 3px;
 
 .Header{
 text-align: center;
-font-family: 'Rubik Iso', cursive;
+font-family: 'Inter';
 width: 100%;
 display: inline-block;
 position: fixed;
@@ -525,7 +525,7 @@ top: 4px;
 
 .heading {
   font-size: 55px;
-  color: #4677c6;
+  color: #F5C353;
 }
 
 .user-access{
@@ -545,6 +545,12 @@ margin-top: 40px;
 flex: 50%;
 }
 
+.form-control{
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #d1d1d1;
+}
+
 .ToDoForm{
   flex: 50%;
   text-align: center;
@@ -554,7 +560,7 @@ position: fixed;
 display:block;
 width: 40%;
 height: 80%;
-background-color: #144da8;
+background-color: #FFFFFF;
 margin-left: 5%;
 margin-top: 5%;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -586,7 +592,7 @@ border-radius: 8px;
 width: 40vw;
 min-height: 80vh;
 cursor: pointer;
-background-color: #144da8;
+background-color: #FFFFFF;
 padding: 5px;
 position: relative;
 align-items: center;
@@ -651,7 +657,7 @@ padding-top: 5px;
 
 .desc-para{
 margin-top:6px;
-background-color: rgb(133, 189, 189);
+background-color: #F5C353;
 width: 1;
 height: fit-content;
 box-sizing: border-box;
@@ -662,7 +668,7 @@ font-family: 'Delicious Handrawn', cursive;
 }
 
 .btn-add{
-  background-color: #8246c6;
+  background-color: #F5C353;
 }
 
 .delete-button{
@@ -757,7 +763,7 @@ box-shadow: none;
   
   .todolist-desc{
     font-size: 20px;
-    color: #144da8;
+    color: #F5C353;
   }
 
 
@@ -765,7 +771,7 @@ box-shadow: none;
   .todo-main{
     min-height: 60px;
     max-height: fit-content;
-    background-color: rgb(78, 106, 183);
+    background-color: #FFFFFF;
   }
 
   .desc-para{
@@ -790,7 +796,7 @@ box-shadow: none;
   
 
   .list-head{
-  color: #144da8;
+  color: #F5C353;
   }
 
   .delete-container{

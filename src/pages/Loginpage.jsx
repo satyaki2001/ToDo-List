@@ -48,7 +48,6 @@ function handlePasswordToggle() {
         localStorage.setItem("access_token", response.data.access_token);
         /***************************/
 
-        toast.success("Login Successful!");
           navigate('/main');
 
 
