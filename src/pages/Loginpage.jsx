@@ -1,5 +1,7 @@
 import React, { useState} from "react";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import CryptoJS from "crypto-js";
 import axios from 'axios';
 import "../images/logo.jpg";
@@ -18,44 +20,48 @@ export const encryptAndStringifyData = (data) => {
 //**************************************/
 
 function Login() {
+
   const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+ 
   const navigate = useNavigate();
 function handlePasswordToggle() {
     setShowPassword(!showPassword);
   }
 
-  function handleSubmit(event) {
+ function handleSubmit(event) {
     event.preventDefault();
     const encryptedPassword = encryptAndStringifyData(password);
    
-   axios
+ axios
       .post("https://servicesv1.sangria.tech/user/login", { 
         username,
         password: encryptedPassword}, {
         headers: { tenant_identifier: "dotkonnekt" }
       })
       .then(response => {
+
         console.log("Login Successful", response.data); 
-        
+
         //Storing the access_token in local storage
         localStorage.setItem("access_token", response.data.access_token);
         /***************************/
 
-        navigate('/main');
+        toast.success("Login Successful!");
+          navigate('/main');
+
 
       })
       .catch(error => {
-        console.log("Login failed", error.response.data); 
-        alert("Login Credentials invalid!!")
+        console.log("Login failed", error.response.data.message); 
+        toast.error(error.response.data.message);
       });
   }
 
-
   return (
     <div className="loginPage">
+      
       <div className="login-text-container">
         <img
           src="https://ik.imagekit.io/e9bejeok1/logo.jpg?updatedAt=1680330115999"
@@ -147,6 +153,7 @@ function handlePasswordToggle() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

@@ -534,8 +534,9 @@ top: 4px;
   margin-right: 10px;
   bottom: 65px;
   font-size: 40px;
-  color: #e8ec13ac;
+  cursor: pointer;
 }
+
 
 .main-form{
 background-color: transparent;
