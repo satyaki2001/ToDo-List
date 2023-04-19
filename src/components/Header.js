@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const token = localStorage.getItem('access_token');
+
 const Header = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
@@ -14,17 +14,19 @@ const Header = () => {
   };
 
   useEffect(() => {
+    const token = localStorage.getItem('access_token');
     const fetchUserData = async () => {
       if(!token) return;
       try {
         const response = await axios.get("https://servicesv1.sangria.tech/user/getLoggedInUser",{
           headers: {
-            Authorization: token,
+            tenant_identifier: "dotkonnekt",
+            Authorization: `Bearer ${token}`,
         },
         });
-        setUsername(response.data.username);
+        setUsername(response.data.Data[0].firstName);
       } catch (error) {
-        console.log(error);
+        console.log(error.response.data.message);
       }
     };
 
@@ -37,7 +39,7 @@ const Header = () => {
         <i className='fa-regular fa-pen-to-square'></i> To Do List
       </h1>
       <div className='user-info'>
-      <span>{username}</span>
+      <span className='login-user-name'>Hi, {username}</span>
       <i
         onClick={handleLogout}
         title='LogOut?'

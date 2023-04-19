@@ -523,6 +523,14 @@ top: 4px;
 
 }
 
+.login-user-name{
+  color: #F5C353;
+  position: absolute;
+  top: 15%;
+  right: 6%;
+  
+  }
+
 .heading {
   font-size: 55px;
   color: #F5C353;
@@ -742,6 +750,14 @@ font-family: 'Delicious Handrawn', cursive;
   margin-right: 10px;
   bottom: 49px;
   font-size: 40px;
+}
+
+
+.login-user-name{
+color: #F5C353;
+position: relative;
+margin-left: 24%;
+
 }
 
   .ToDoForm {

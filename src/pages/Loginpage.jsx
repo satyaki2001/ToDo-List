@@ -45,7 +45,7 @@ function handlePasswordToggle() {
         console.log("Login Successful", response.data); 
 
         //Storing the access_token in local storage
-        localStorage.setItem("access_token", response.data.access_token);
+        localStorage.setItem("access_token", response.data.Data.access_token);
         /***************************/
 
           navigate('/main');
