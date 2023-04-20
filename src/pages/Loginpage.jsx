@@ -47,19 +47,24 @@ function handlePasswordToggle() {
         //Storing the access_token in local storage
         localStorage.setItem("access_token", response.data.Data.access_token);
         /***************************/
+          toast.success("Login Successful");
 
-          navigate('/main');
+          setTimeout(() => {
+            navigate('/main');
+          }, 3000);
 
 
       })
       .catch(error => {
         console.log("Login failed", error.response.data.message); 
         toast.error(error.response.data.message);
+
       });
   }
 
   return (
     <div className="loginPage">
+       
       
       <div className="login-text-container">
         <img

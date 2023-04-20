@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ToastProvider } from 'react-toastify';
 
 //pages
 import Main from './pages/main';
